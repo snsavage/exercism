@@ -8,6 +8,7 @@ public static class Bob
         public static string Shouting = "Whoa, chill out!";
         public static string Indifferent = "Whatever.";
         public static string Nonesense = "Fine. Be that way!";
+        public static string ShoutingQuestion = "Calm down, I know what I'm doing!";
     }
 
     public static string Response(string statement)
@@ -16,6 +17,7 @@ public static class Bob
 
         if(statement == "") { return Responses.Nonesense; }        
 
+        if(AllCaps(statement) && EndsWithQuestion(statement)) { return Responses.ShoutingQuestion; }
         if(AllCaps(statement)) { return Responses.Shouting; }
         if(EndsWithQuestion(statement)) { return Responses.Question; }
         if(Empty(statement)) { return Responses.Nonesense; }
